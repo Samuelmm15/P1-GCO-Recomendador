@@ -6,15 +6,16 @@
 import os
 # Esta librería sirve para poder gestionar de manera sencilla los argumentos pasados por línea de comandos.
 import click
+import sys
 
 def initial_menu(i, m, n, t):
   print("Welcome to the recommendation system!")
   print()
   print("The introdiced data is the following:")
-  print("Input file: " + i)
-  print("Metrics: " + m)
-  print("Number of neighbours: " + n)
-  print("Type of prediction: " + t)
+  print("Input file: " + str(i))
+  print("Metrics: " + str(m))
+  print("Number of neighbours: " + str(n))
+  print("Type of prediction: " + str(t))
   
 def help_menu():
   print("Welcome to the support menu!")
@@ -33,19 +34,32 @@ def help_menu():
   print("<type-of-prediction> is the type of prediction that you want to use to calculate the prediction.")
   print("  1. 'simple' for simple prediction.")
   print("  2. 'difference' for difference with the average.")
+  sys.exit(0) # Salida del programa con éxito.
   
 # De esta manera se realiza la implementación del sistema de paso de parámetros por línea de comendos.
 @click.command()
 @click.option('-i', help='Path to the input file that contains the utility matrix.')
-@click.option('-m', help='Metrics that you want to use to calculate the similarity between users.')
-@click.option('-n', help='Number of neighbours that you want to use to calculate the prediction.')
-@click.option('-t', help='Type of prediction that you want to use to calculate the prediction.')
+@click.option('-m', type=int, help='Metrics that you want to use to calculate the similarity between users.')
+@click.option('-n', type=int, help='Number of neighbours that you want to use to calculate the prediction.')
+@click.option('-t', type=int, help='Type of prediction that you want to use to calculate the prediction.')
 @click.option('-h', help='Show the help menu.', is_flag=True)
 def main(i, m, n, t, h):
   if h:
     help_menu()
   elif i and m and n and t:
-    initial_menu(i, m, n, t)
+    if not os.path.isfile(i):
+      print("The input file doesn't exist.")
+      sys.exist(1) # Salida del programa con error de tipo 1.
+    elif m == 1 or m == 2 or m == 3:
+      if n > 0:
+        if t == 1 or t == 2:
+          initial_menu(i, m, n, t)
+        else:
+          help_menu()
+      else:
+        help_menu()
+    else:
+      help_menu()
   else:
     help_menu()
 
