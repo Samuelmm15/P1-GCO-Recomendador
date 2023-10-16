@@ -9,7 +9,7 @@ from metrics.pearson_correlation import pearson_correlation
 
 def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, type_of_prediction):
   if metrics == 1:
-    euclidean_distance() # Se obtiene la matriz de similitud tras esto
+    euclidean_distance(lines_of_input_file) # Se obtiene la matriz de similitud tras esto
   elif metrics == 2:
     pearson_correlation(lines_of_input_file) # Se obtiene la matriz de similitud tras esto
   elif metrics == 3:
