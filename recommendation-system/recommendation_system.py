@@ -32,9 +32,9 @@ def utility_matrix_conversor(lines_of_input_file):
 def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, type_of_prediction):
   utility_matrix = utility_matrix_conversor(lines_of_input_file)
   if metrics == 1:
-    euclidean_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
+    similarity_matrix = euclidean_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
   elif metrics == 2:
-    pearson_correlation(utility_matrix) # Se obtiene la matriz de similitud tras esto
+    similarity_matrix = pearson_correlation(utility_matrix) # Se obtiene la matriz de similitud tras esto
   elif metrics == 3:
-    cosine_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
+    similarity_matrix = cosine_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
 

@@ -15,5 +15,7 @@ def cosine_distance(utility_matrix):
   similarity_matrix = cosine_similarity(utility_matrix)
   
   # Se comprueba como resulta la matriz de similitud.
-  print(similarity_matrix)
+  # print(similarity_matrix)
+  
+  return similarity_matrix
 

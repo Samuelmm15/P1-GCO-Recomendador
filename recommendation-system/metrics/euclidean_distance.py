@@ -28,4 +28,6 @@ def euclidean_distance(utility_matrix):
           similarity_matrix[i, j] = np.inf
           
   # Se comprueba como resulta la matriz de similitud.
-  print(similarity_matrix)
+  # print(similarity_matrix)
+  
+  return similarity_matrix

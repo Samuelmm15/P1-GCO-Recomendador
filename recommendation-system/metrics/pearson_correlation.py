@@ -30,9 +30,8 @@ def pearson_correlation(utility_matrix):
   
   # Se rellena la diagonal principal de la matriz con 1 para indicar que la similitud entre un usuario y él mismo es 1.
   np.fill_diagonal(similarity_matrix, 1)
+
   # Se comprueba el resultado final
-  print()
-  print("Matriz de similitud basada en el coeficiente de Pearson:")
-  print(similarity_matrix)
+  # print(similarity_matrix)
   
-  
+  return similarity_matrix
