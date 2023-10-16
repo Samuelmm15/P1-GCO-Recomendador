@@ -8,6 +8,7 @@ import os
 import click
 import sys
 from read_input_file_system import read_input_file
+from recommendation_system import recommendation_system
 
 def initial_menu(i, m, n, t):
   print("Welcome to the recommendation system!")
@@ -19,6 +20,7 @@ def initial_menu(i, m, n, t):
   print("Type of prediction: " + str(t))
   # Para comenzar obtenemos el contenido del fichero de la matriz de utilidad.
   lines_of_input_file = read_input_file(i)
+  recommendation_system(lines_of_input_file, m, n, t)
   
   
 def help_menu():
@@ -47,7 +49,7 @@ def help_menu():
 @click.option('-n', type=int, help='Number of neighbours that you want to use to calculate the prediction.')
 @click.option('-t', type=int, help='Type of prediction that you want to use to calculate the prediction.')
 @click.option('-h', help='Show the help menu.', is_flag=True)
-def main(i, m, n, t, h):
+def main(i, m, n, t, h):  # Este es la función principal del programa.
   if h:
     help_menu()
   elif i and m and n and t:
