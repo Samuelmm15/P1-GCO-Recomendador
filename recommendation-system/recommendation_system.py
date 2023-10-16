@@ -13,5 +13,5 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
   elif metrics == 2:
     pearson_correlation(lines_of_input_file) # Se obtiene la matriz de similitud tras esto
   elif metrics == 3:
-    cosine_distance() # Se obtiene la matriz de similitud tras esto
+    cosine_distance(lines_of_input_file) # Se obtiene la matriz de similitud tras esto
 
