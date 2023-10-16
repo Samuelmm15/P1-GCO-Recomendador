@@ -7,6 +7,7 @@ import os
 # Esta librería sirve para poder gestionar de manera sencilla los argumentos pasados por línea de comandos.
 import click
 import sys
+from read_input_file_system import read_input_file
 
 def initial_menu(i, m, n, t):
   print("Welcome to the recommendation system!")
@@ -16,6 +17,9 @@ def initial_menu(i, m, n, t):
   print("Metrics: " + str(m))
   print("Number of neighbours: " + str(n))
   print("Type of prediction: " + str(t))
+  # Para comenzar obtenemos el contenido del fichero de la matriz de utilidad.
+  lines_of_input_file = read_input_file(i)
+  
   
 def help_menu():
   print("Welcome to the support menu!")
