@@ -8,6 +8,7 @@ import numpy as np
 from metrics.euclidean_distance import euclidean_distance
 from metrics.cosine_distance import cosine_distance
 from metrics.pearson_correlation import pearson_correlation
+from finding_near_neighbors import finding_near_neighbors
 
 def utility_matrix_conversor(lines_of_input_file):
   # Quitamos las dos primeras líneas de la lista del fichero de entrada.
@@ -37,4 +38,7 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
     similarity_matrix = pearson_correlation(utility_matrix) # Se obtiene la matriz de similitud tras esto
   elif metrics == 3:
     similarity_matrix = cosine_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
+    
+  # Para continuar se obtienen los vecinos más cercanos.
+  near_neighbors = finding_near_neighbors(similarity_matrix, number_of_neighbours)
 

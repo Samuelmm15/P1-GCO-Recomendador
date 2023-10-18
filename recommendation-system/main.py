@@ -55,7 +55,7 @@ def main(i, m, n, t, h):  # Este es la función principal del programa.
   elif i and m and n and t:
     if not os.path.isfile(i):
       print("The input file doesn't exist.")
-      sys.exist(1) # Salida del programa con error de tipo 1.
+      sys.exit(1) # Salida del programa con error de tipo 1.
     elif m == 1 or m == 2 or m == 3:
       if n > 0:
         if t == 1 or t == 2:
