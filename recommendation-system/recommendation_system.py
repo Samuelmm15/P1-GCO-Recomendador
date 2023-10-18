@@ -9,6 +9,8 @@ from metrics.euclidean_distance import euclidean_distance
 from metrics.cosine_distance import cosine_distance
 from metrics.pearson_correlation import pearson_correlation
 from finding_near_neighbors import finding_near_neighbors
+from prediction.simple_prediction import simple_prediction
+from prediction.difference_with_average_prediction import difference_with_the_average
 
 def utility_matrix_conversor(lines_of_input_file):
   # Quitamos las dos primeras líneas de la lista del fichero de entrada.
@@ -41,4 +43,10 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
     
   # Para continuar se obtienen los vecinos más cercanos.
   near_neighbors = finding_near_neighbors(similarity_matrix, number_of_neighbours)
+  
+  # Finalizamos con el cáclulo de la predicción.
+  if type_of_prediction == 1:
+    prediction_matrix = simple_prediction(similarity_matrix, near_neighbors, utility_matrix)
+  elif type_of_prediction == 2:
+    difference_with_the_average(similarity_matrix, near_neighbors, utility_matrix)
 
