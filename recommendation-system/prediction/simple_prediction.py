@@ -18,7 +18,7 @@ def simple_prediction(similarity_matrix, near_neighbors, utility_matrix):
           if not np.isnan(utility_matrix[near_neighbors[k, 0], j]):
             numerator += similarity_matrix[i, near_neighbors[k, 0]] * utility_matrix[near_neighbors[k, 0], j]
             denominator += similarity_matrix[i, near_neighbors[k, 0]]
-        # Se realiza la comprobación de que el denominador no sea cero.
+        # Se comprueba que el denominador no sea cero.
         if denominator != 0:
           prediction_matrix[i, j] = numerator / denominator
         else:

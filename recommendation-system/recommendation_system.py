@@ -48,5 +48,5 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
   if type_of_prediction == 1:
     prediction_matrix = simple_prediction(similarity_matrix, near_neighbors, utility_matrix)
   elif type_of_prediction == 2:
-    difference_with_the_average(similarity_matrix, near_neighbors, utility_matrix)
+    prediction_matrix = difference_with_the_average(similarity_matrix, near_neighbors, utility_matrix)
 
