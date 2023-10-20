@@ -10,14 +10,14 @@ def euclidean_distance_similarity(row1, row2):
 
 def euclidean_distance(utility_matrix):
   # Se obtienen las dimensiones de la matriz de utilidad.
-  number_of_elements, number_of_users = utility_matrix.shape
+  number_of_users, number_of_elements = utility_matrix.shape
   
   # Se inicializa la matriz de similitud con ceros.
-  similarity_matrix = np.zeros((number_of_elements, number_of_elements))
+  similarity_matrix = np.zeros((number_of_users, number_of_users))
   
   # A partir de este punto se realiza el cálculo de la matriz de similitud.
-  for i in range(number_of_elements):
-    for j in range(number_of_elements):
+  for i in range(number_of_users):
+    for j in range(number_of_users):
       if i == j:
         similarity_matrix[i, j] = 0
       else:
@@ -27,7 +27,10 @@ def euclidean_distance(utility_matrix):
         else:
           similarity_matrix[i, j] = np.inf
           
+  # Se rellenan los valores de la diagonal principal para establecer la similitud de un usuario consigo mismo.        
+  np.fill_diagonal(similarity_matrix, 1)
+  
   # Se comprueba como resulta la matriz de similitud.
-  # print(similarity_matrix)
+  print(similarity_matrix)
   
   return similarity_matrix

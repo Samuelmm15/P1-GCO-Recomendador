@@ -4,19 +4,25 @@
 # Description: This file contains the implementation of the function that calculates the pearson correlation.
 
 import numpy as np
-from scipy.stats import pearsonr
 
 def pearson_similarity(row1, row2):
-  # Obtención de los índices donde ambos usuarios tienen valores no nulos
-  common_indices = np.logical_and(~np.isnan(row1), ~np.isnan(row2))
   
-  # Si no hay valores en común se devuelve 0
-  if not common_indices.any():
-    return 0
+  numerator = 0
+  denominator1 = 0
+  denominator2 = 0
+
+
+  user1_average = row1.sum()/len(row1)
+  user2_average = row2.sum()/len(row2)
+
+  for i in range(len(row1)):
+    numerator += (row1[i] - user1_average) * (row2[i] - user2_average)
+
+    denominator1 += (row1[i] - user1_average) * (row1[i] - user1_average)
+    denominator2 += (row2[i] - user2_average) * (row2[i] - user2_average)
+
+  return (numerator/(np.sqrt(denominator1) * np.sqrt(denominator2)))
   
-  # Se realiza el cálculo de los coeficientes de Pearson solo para los valores que son comunes
-  pearson, _ = pearsonr(row1[common_indices], row2[common_indices])
-  return pearson
 
 # Este es un sistema de cálculo de la medida de similitud entre usuarios.
 def pearson_correlation(utility_matrix):
@@ -32,6 +38,7 @@ def pearson_correlation(utility_matrix):
   np.fill_diagonal(similarity_matrix, 1)
 
   # Se comprueba el resultado final
-  # print(similarity_matrix)
+  print
+  print(similarity_matrix)
   
   return similarity_matrix

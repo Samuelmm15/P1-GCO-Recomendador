@@ -27,9 +27,9 @@ def difference_with_the_average(similarity_matrix, near_neighbors, utility_matri
         prediction_matrix[i, j] = utility_matrix[i, j]
         
   # Se comprueba el resultado de la predicción.
-  # print()
-  # print("The prediction matrix is the following:")
-  # print(prediction_matrix)
-  # print()
+  print()
+  print("The prediction matrix is the following:")
+  print(prediction_matrix)
+  print()
   
   return prediction_matrix
