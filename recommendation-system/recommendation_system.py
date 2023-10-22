@@ -8,7 +8,6 @@ import numpy as np
 from metrics.euclidean_distance import euclidean_distance
 from metrics.cosine_distance import cosine_distance
 from metrics.pearson_correlation import pearson_correlation
-from finding_near_neighbors import finding_near_neighbors
 from prediction.simple_prediction import simple_prediction
 from prediction.difference_with_average_prediction import difference_with_the_average
 
@@ -56,13 +55,10 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
     similarity_matrix = pearson_correlation(utility_matrix) # Se obtiene la matriz de similitud tras esto
   elif metrics == 3:
     similarity_matrix = cosine_distance(utility_matrix) # Se obtiene la matriz de similitud tras esto
-    
-  # Para continuar se obtienen los vecinos más cercanos.
-  near_neighbors = finding_near_neighbors(original_utility_matrix, number_of_neighbours)
   
   # # Finalizamos con el cáclulo de la predicción.
   if type_of_prediction == 1:
-    prediction_matrix = simple_prediction(similarity_matrix, near_neighbors, original_utility_matrix)
+    prediction_matrix = simple_prediction(similarity_matrix, number_of_neighbours, original_utility_matrix)
   elif type_of_prediction == 2:
-    prediction_matrix = difference_with_the_average(similarity_matrix, near_neighbors, original_utility_matrix)
+    prediction_matrix = difference_with_the_average(similarity_matrix, number_of_neighbours, original_utility_matrix)
 
