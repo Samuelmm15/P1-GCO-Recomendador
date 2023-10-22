@@ -24,7 +24,12 @@ def difference_with_the_average(similarity_matrix, number_of_neighbours, utility
             denominator += similarity_matrix[i, near_neighbors[k]]
         # Comprobamos que el denominador no sea cero
         if denominator != 0:
-          prediction_matrix[i, j] = np.nanmean(utility_matrix[i, :]) + numerator / denominator
+          if np.nanmean(utility_matrix[i, :]) + numerator / denominator > 1:
+            prediction_matrix[i, j] = 1
+          elif np.nanmean(utility_matrix[i, :]) + numerator / denominator < 0:
+            prediction_matrix[i, j] = 0
+          else:
+            prediction_matrix[i, j] = np.nanmean(utility_matrix[i, :]) + numerator / denominator
         else:
           prediction_matrix[i, j] = 0
       else:
