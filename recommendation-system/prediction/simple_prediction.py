@@ -7,10 +7,11 @@ from prediction.finding_near_neighbors import finding_near_neighbors
 
 import numpy as np
 
-
-def simple_prediction(similarity_matrix, number_of_neighbours, utility_matrix):
+def simple_prediction(similarity_matrix, number_of_neighbours, utility_matrix, max_value, min_value):
     # Inicializamos la matriz de predicción con ceros.
     prediction_matrix = np.zeros(utility_matrix.shape)
+    prediction_history = ""
+
     # Recorremos todas las entradas de la matriz de utilidad.
     for i in range(utility_matrix.shape[0]):
         for j in range(utility_matrix.shape[1]):
@@ -36,14 +37,15 @@ def simple_prediction(similarity_matrix, number_of_neighbours, utility_matrix):
                         prediction_matrix[i, j] = numerator / denominator
                 else:
                     prediction_matrix[i, j] = 0
+                prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
+                prediction_history += ", Prediction: " + str(min_value + ((numerator / denominator) * (max_value - min_value))) + "\n"
             # Si la entrada no es NaN, la copiamos a la matriz de predicción.
             else:
                 prediction_matrix[i, j] = utility_matrix[i, j]
 
-    # Comprobamos el resultado.
-    print()
-    print(prediction_matrix)
-    print()
+    for i in range(prediction_matrix.shape[0]):
+        for j in range(prediction_matrix.shape[1]):
+            prediction_matrix[i, j] = (prediction_matrix[i, j] * (max_value - min_value)) + min_value
 
     # Devolvemos la matriz de predicción.
-    return prediction_matrix
+    return prediction_matrix, prediction_history

@@ -7,9 +7,10 @@ from prediction.finding_near_neighbors import finding_near_neighbors
 
 import numpy as np
 
-def difference_with_the_average(similarity_matrix, number_of_neighbours, utility_matrix):
+def difference_with_the_average(similarity_matrix, number_of_neighbours, utility_matrix, max_value, min_value):
   # Se calcula la matriz resultante con la predicción, haciendo uso de la predicción basada en la diferencia con la media.
   prediction_matrix = np.zeros(utility_matrix.shape)
+  prediction_history = ""
   
   for i in range(utility_matrix.shape[0]):
     for j in range(utility_matrix.shape[1]):
@@ -29,16 +30,16 @@ def difference_with_the_average(similarity_matrix, number_of_neighbours, utility
           elif np.nanmean(utility_matrix[i, :]) + numerator / denominator < 0:
             prediction_matrix[i, j] = 0
           else:
-            prediction_matrix[i, j] = np.nanmean(utility_matrix[i, :]) + numerator / denominator
+            prediction_matrix[i, j] = (np.nanmean(utility_matrix[i, :]) + numerator / denominator)
         else:
           prediction_matrix[i, j] = 0
+        prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
+        prediction_history += ", Prediction: " + str(min_value + ((np.nanmean(utility_matrix[i, :]) + numerator / denominator)* (max_value - min_value))) + "\n"
       else:
         prediction_matrix[i, j] = utility_matrix[i, j]
+
+  for i in range(prediction_matrix.shape[0]):
+    for j in range(prediction_matrix.shape[1]):
+      prediction_matrix[i, j] = (prediction_matrix[i, j] * (max_value - min_value)) + min_value
         
-  # Se comprueba el resultado de la predicción.
-  print()
-  print("The prediction matrix is the following:")
-  print(prediction_matrix)
-  print()
-  
-  return prediction_matrix
+  return prediction_matrix, prediction_history
