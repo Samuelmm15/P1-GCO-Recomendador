@@ -2,7 +2,7 @@
 
 Este repositorio contiene la implementación de un sistema de recomendación que utiliza métodos de filtrado colaborativo. El sistema de recomendación se basa en la técnica de filtrado colaborativo, utilizando la similitud mediante distintas métricas que permiten calcular la similitud entre usuarios. El sistema de recomendación se encuentra implementado en [Python 3.11.5](https://www.python.org/downloads/release/python-3110/).
 
-## Descripción del sistema de recomendación
+## 🏷️ Descripción del sistema de recomendación
 
 La siguiente aplicación se trata de un sistema de recomendación basado en métodos de filtrado colaborativo. Dicho programa, obtiene una matriz de utilidad a partir
 de un fichero de texto el cual contiene dicha matriz, la cual se encuentra incompleta y contiene valores desconocidos, los cuales se deben de predecir. Para ello, se
@@ -39,7 +39,7 @@ Para la instalación de las dependencias del programa, se debe de ejecutar el si
 $ pip install -r requirements.txt
 ```
 
-## ⚡️Ejecución del programa
+## ⚡️ Ejecución del programa
 
 Para la ejecución del programa se debe de ejecutar el siguiente comando:
 
@@ -65,7 +65,7 @@ $ python main.py -h
 
 A continuación, se muestra un ejemplo de ejecución del programa:
 
-
+https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/c51576d2-337d-4dc7-9b6c-b200f8384988
 
 ## 📝 Licencia
 
