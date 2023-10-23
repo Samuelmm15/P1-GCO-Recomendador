@@ -1,1 +1,3 @@
-# P1-GCO-Recomendador
+# Sistema de recomendación - Métodos de filtrado colaborativo
+
+Este repositorio contiene la implementación 
