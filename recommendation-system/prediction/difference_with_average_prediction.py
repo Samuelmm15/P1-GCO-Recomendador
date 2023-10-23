@@ -33,8 +33,9 @@ def difference_with_the_average(similarity_matrix, number_of_neighbours, utility
             prediction_matrix[i, j] = (np.nanmean(utility_matrix[i, :]) + numerator / denominator)
         else:
           prediction_matrix[i, j] = 0
-        prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
-        prediction_history += ", Prediction: " + str(min_value + ((np.nanmean(utility_matrix[i, :]) + numerator / denominator)* (max_value - min_value))) + "\n"
+        if denominator != 0:
+          prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
+          prediction_history += ", Prediction: " + str(min_value + ((np.nanmean(utility_matrix[i, :]) + numerator / denominator)* (max_value - min_value))) + "\n"
       else:
         prediction_matrix[i, j] = utility_matrix[i, j]
 

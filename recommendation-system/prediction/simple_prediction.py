@@ -37,8 +37,9 @@ def simple_prediction(similarity_matrix, number_of_neighbours, utility_matrix, m
                         prediction_matrix[i, j] = numerator / denominator
                 else:
                     prediction_matrix[i, j] = 0
-                prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
-                prediction_history += ", Prediction: " + str(min_value + ((numerator / denominator) * (max_value - min_value))) + "\n"
+                if denominator != 0:
+                    prediction_history += "Position (" + str(i) + "," + str(j) + ") => Neighbours: " + str(near_neighbors)
+                    prediction_history += ", Prediction: " + str(min_value + ((numerator / denominator) * (max_value - min_value))) + "\n"
             # Si la entrada no es NaN, la copiamos a la matriz de predicción.
             else:
                 prediction_matrix[i, j] = utility_matrix[i, j]
