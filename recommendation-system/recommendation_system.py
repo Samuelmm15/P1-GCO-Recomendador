@@ -50,7 +50,7 @@ def utility_matrix_conversor(lines_of_input_file):
     
   return distance_utility_matrix, original_utility_matrix, max_value, min_value
 
-def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, type_of_prediction):
+def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, type_of_prediction, file_name):
   distance_utility_matrix, original_utility_matrix, max_value, min_value = utility_matrix_conversor(lines_of_input_file)
   if metrics == 1:
     similarity_matrix = euclidean_distance(distance_utility_matrix) # Se obtiene la matriz de similitud tras esto
@@ -66,5 +66,5 @@ def recommendation_system(lines_of_input_file, metrics, number_of_neighbours, ty
     prediction_matrix, prediction_history = difference_with_the_average(similarity_matrix, number_of_neighbours, original_utility_matrix, max_value, min_value)
     
   # Se devuelve todo lo calculado a un fichero externo.
-  write_file_system(prediction_matrix, similarity_matrix, prediction_history)
+  write_file_system(prediction_matrix, similarity_matrix, prediction_history, metrics, number_of_neighbours, type_of_prediction, file_name)
 

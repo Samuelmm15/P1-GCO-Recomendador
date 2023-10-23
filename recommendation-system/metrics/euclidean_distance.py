@@ -30,7 +30,4 @@ def euclidean_distance(utility_matrix):
   # Se rellenan los valores de la diagonal principal para establecer la similitud de un usuario consigo mismo.        
   np.fill_diagonal(similarity_matrix, 1)
   
-  # Se comprueba como resulta la matriz de similitud.
-  print(similarity_matrix)
-  
   return similarity_matrix
