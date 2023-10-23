@@ -50,7 +50,7 @@ $ python main.py [-i] [<FILE-PATH>] [-m] [<TYPE-OF-METRIC>] [-n] [<NUMBER-OF-NEI
 Donde:
 
 - `-i` es la ruta del fichero de entrada que contiene la matriz de utilidad.
-- `m` es el tipo de métrica que se desea usar para el cálculo de la similitud entre usuarios. Se puede seleccionar entre la métrica 1, 2 o 3.
+- `-m` es el tipo de métrica que se desea usar para el cálculo de la similitud entre usuarios. Se puede seleccionar entre la métrica 1, 2 o 3.
 - `-n` es el número de vecinos cercanos que se desea usar para el cálculo de la predicción.
 - `-t` es el tipo de método de predicción que se desea usar para el cálculo de la predicción. Se puede seleccionar entre el método 1 o 2.
 
