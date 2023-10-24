@@ -61,7 +61,7 @@ para poder visualizar la ayuda del programa:
 $ python main.py -h
 ```
 
-## Generación de documentación del programa
+## 🎨 Generación de documentación del programa
 
 Para la generación de la documentación de la aplicación se ha hecho uso de [`Doxygen`](https://www.doxygen.nl/index.html), de manera que, para la visualización de dicha documentación en formato html, se debe de ir a la siguiente ruta:
 
@@ -73,7 +73,7 @@ Accediendo a dicho fichero, se ejecuta el navegador web por defecto del sistema,
 
 En la siguiente imagen, se puede observar un ejemplo de la documentación generada por `Doxygen`:
 
-
+<img width="1680" alt="Captura-generación-de-documentación-doxygen" src="https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/5c899bad-62f1-4f88-b4f0-9c35fc7bf959">
 
 ## Ejemplo de ejecución del programa
 
