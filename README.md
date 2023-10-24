@@ -73,13 +73,13 @@ Accediendo a dicho fichero, se ejecuta el navegador web por defecto del sistema,
 
 En la siguiente imagen, se puede observar un ejemplo de la documentación generada por `Doxygen`:
 
-<img width="1680" alt="Captura-generación-de-documentación-doxygen" src="https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/5c899bad-62f1-4f88-b4f0-9c35fc7bf959">
+<img width="1680" alt="Captura-generación-de-documentación-doxygen" src="https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/07ab8bf0-0651-4624-b9ba-3814bfc3bb33">
 
 ## Ejemplo de ejecución del programa
 
 A continuación, se muestra un ejemplo de ejecución del programa:
 
-https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/c51576d2-337d-4dc7-9b6c-b200f8384988
+https://github.com/Samuelmm15/P1-GCO-Recomendador/assets/72341631/87154178-69c9-481f-ab3c-bd866422baac
 
 ## 📝 Licencia
 
