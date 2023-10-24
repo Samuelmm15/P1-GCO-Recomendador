@@ -2,13 +2,25 @@
 # Authors: Samuel Martín Morales, Aday Chocho Aisa
 # Date: 14/10/2023
 # Description: This file contains the implementation of the function that calculates the prediction using the difference with the average.
+# Copyright (c) 2023 Samuel Martín Morales y Aday Chocho Aisa. All rights reserved.
 
-from prediction.finding_near_neighbors import finding_near_neighbors
-
+# LIBRARIES
 import numpy as np
 
+# FILES IMPORTS
+from prediction.finding_near_neighbors import finding_near_neighbors
+
+##
+  # @brief Implements the function that calculates the prediction using the difference with the average.
+  #
+  # @param similarity_matrix the similarity matrix.
+  # @param number_of_neighbours the number of neighbours that the user wants to use to calculate the prediction.
+  # @param utility_matrix the utility matrix.
+  # @param max_value the maximum value of the utility matrix.
+  # @param min_value the minimum value of the utility matrix.
+  # @return The prediction matrix and the prediction history.
+#
 def difference_with_the_average(similarity_matrix, number_of_neighbours, utility_matrix, max_value, min_value):
-  # Se calcula la matriz resultante con la predicción, haciendo uso de la predicción basada en la diferencia con la media.
   prediction_matrix = np.zeros(utility_matrix.shape)
   prediction_history = ""
   
@@ -17,13 +29,12 @@ def difference_with_the_average(similarity_matrix, number_of_neighbours, utility
       if np.isnan(utility_matrix[i, j]):
         numerator = 0
         denominator = 0
-        # El numero de vecinos lo calculamos en este punto.
-        near_neighbors = finding_near_neighbors(similarity_matrix, number_of_neighbours, i)
+        near_neighbors = finding_near_neighbors(similarity_matrix, number_of_neighbours, i) # Calculate the near neighbours
         for k in range(near_neighbors.shape[0]):
           if not np.isnan(utility_matrix[near_neighbors[k], j]):
             numerator += similarity_matrix[i, near_neighbors[k]] * (utility_matrix[near_neighbors[k], j] - np.nanmean(utility_matrix[near_neighbors[k], :]))
             denominator += similarity_matrix[i, near_neighbors[k]]
-        # Comprobamos que el denominador no sea cero
+        # Comprobates if the denominator is 0
         if denominator != 0:
           if np.nanmean(utility_matrix[i, :]) + numerator / denominator > 1:
             prediction_matrix[i, j] = 1

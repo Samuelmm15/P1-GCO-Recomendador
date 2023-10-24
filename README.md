@@ -61,6 +61,20 @@ para poder visualizar la ayuda del programa:
 $ python main.py -h
 ```
 
+## Generación de documentación del programa
+
+Para la generación de la documentación de la aplicación se ha hecho uso de [`Doxygen`](https://www.doxygen.nl/index.html), de manera que, para la visualización de dicha documentación en formato html, se debe de ir a la siguiente ruta:
+
+```bash
+$ cd ../docs/html/index.html
+```
+
+Accediendo a dicho fichero, se ejecuta el navegador web por defecto del sistema, mostrando la documentación del programa.
+
+En la siguiente imagen, se puede observar un ejemplo de la documentación generada por `Doxygen`:
+
+
+
 ## Ejemplo de ejecución del programa
 
 A continuación, se muestra un ejemplo de ejecución del programa:

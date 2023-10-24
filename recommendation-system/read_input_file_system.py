@@ -2,22 +2,28 @@
 # Authors: Samuel Martín Morales, Aday Chocho Aisa
 # Date: 14/10/2023
 # Description: This file contains the implementation of the function that obtains the different lines of the input file.
+# Copyright (c) 2023 Samuel Martín Morales y Aday Chocho Aisa. All rights reserved.
 
+# LIBRARIES
 import os
 import sys
 
+##
+  # @brief Implements the function that obtains the different lines of the input file.
+  #
+  # @param input_file the input file.
+  # @return The different lines of the input file.
+# 
 def read_input_file(input_file):
-  # Para comenzar comprobar que el fichero pasado como parámetro existe y tiene la extensión correcta, es decir, `.txt`
+  # To start with, we check if the input file exists and if it is a file.
   if os.path.exists(input_file) and os.path.isfile(input_file):
-    # Se obtiene la extensión del fichero para comprobar
     extension = os.path.splitext(input_file)[1]
     if extension != ".txt":
       print("The input file must be a `.txt` file.")
-      sys.exit(1) # Salida del programa con error de tipo 1.
+      sys.exit(1) # Exit with error type 1.
     else:
       try:
-        with open(input_file, 'r') as file:
-          # Se lee el conteniedo de cada línea del fichero y se almacena en una matriz dividiendo la entrada como elementos independientes.
+        with open(input_file, 'r') as file: # Open the file in read mode.
           rows = []
           for line in file:
             rows.append(line.strip().split())

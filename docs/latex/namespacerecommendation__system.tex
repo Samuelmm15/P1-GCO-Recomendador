@@ -1,0 +1,53 @@
+\doxysection{recommendation\+\_\+system Namespace Reference}
+\hypertarget{namespacerecommendation__system}{}\label{namespacerecommendation__system}\index{recommendation\_system@{recommendation\_system}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacerecommendation__system_af2361b5b7fba07fcaa4ff3abe0c6f212}{recommendation\+\_\+system}} (lines\+\_\+of\+\_\+input\+\_\+file, metrics, number\+\_\+of\+\_\+neighbours, type\+\_\+of\+\_\+prediction, file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Implements the function that had the menu that calculates the different elements needed for the prediction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacerecommendation__system_a96eae4f436a7c35051d2e840ff4d65e7}{utility\+\_\+matrix\+\_\+conversor}} (lines\+\_\+of\+\_\+input\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Implements the function that converts the utility matrix introduced by the input file into a float utility matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacerecommendation__system_af2361b5b7fba07fcaa4ff3abe0c6f212}\label{namespacerecommendation__system_af2361b5b7fba07fcaa4ff3abe0c6f212} 
+\index{recommendation\_system@{recommendation\_system}!recommendation\_system@{recommendation\_system}}
+\index{recommendation\_system@{recommendation\_system}!recommendation\_system@{recommendation\_system}}
+\doxysubsubsection{\texorpdfstring{recommendation\_system()}{recommendation\_system()}}
+{\footnotesize\ttfamily recommendation\+\_\+system.\+recommendation\+\_\+system (\begin{DoxyParamCaption}\item[{}]{lines\+\_\+of\+\_\+input\+\_\+file,  }\item[{}]{metrics,  }\item[{}]{number\+\_\+of\+\_\+neighbours,  }\item[{}]{type\+\_\+of\+\_\+prediction,  }\item[{}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Implements the function that had the menu that calculates the different elements needed for the prediction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lines\+\_\+of\+\_\+input\+\_\+file} & the different lines of the input file (utility matrix). \\
+\hline
+{\em metrics} & the metrics that the user wants to use to calculate the similarity between users. \\
+\hline
+{\em number\+\_\+of\+\_\+neighbours} & the number of neighbours that the user wants to use to calculate the prediction. \\
+\hline
+{\em type\+\_\+of\+\_\+prediction} & the type of prediction that the user wants to use to calculate the prediction. \\
+\hline
+{\em file\+\_\+name} & the name of the file of the input file that contains the utility matrix. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacerecommendation__system_a96eae4f436a7c35051d2e840ff4d65e7}\label{namespacerecommendation__system_a96eae4f436a7c35051d2e840ff4d65e7} 
+\index{recommendation\_system@{recommendation\_system}!utility\_matrix\_conversor@{utility\_matrix\_conversor}}
+\index{utility\_matrix\_conversor@{utility\_matrix\_conversor}!recommendation\_system@{recommendation\_system}}
+\doxysubsubsection{\texorpdfstring{utility\_matrix\_conversor()}{utility\_matrix\_conversor()}}
+{\footnotesize\ttfamily recommendation\+\_\+system.\+utility\+\_\+matrix\+\_\+conversor (\begin{DoxyParamCaption}\item[{}]{lines\+\_\+of\+\_\+input\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Implements the function that converts the utility matrix introduced by the input file into a float utility matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lines\+\_\+of\+\_\+input\+\_\+file} & the different lines of the input file (utility matrix). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The float utility matrix without the missing columns, the original utility matrix, maximum value and minimum value. 
+\end{DoxyReturn}

@@ -2,20 +2,31 @@
 # Authors: Samuel Martín Morales, Aday Chocho Aisa
 # Date: 14/10/2023
 # Description: This function contains the implementation of the function that calculates the euclidean distance.
+# Copyright (c) 2023 Samuel Martín Morales y Aday Chocho Aisa. All rights reserved.
 
+# LIBRARIES
 import numpy as np
 
+##
+  # @brief Implements the function that calculates the euclidean distance between two users.
+  #
+  # @param row1 the first user.
+  # @param row2 the second user.
+  # @return The euclidean distance between the two users.
+#
 def euclidean_distance_similarity(row1, row2):
   return np.sqrt(np.sum((row1 - row2) ** 2))
 
+##
+  # @brief Implements the function that calculates the euclidean distance between all the users.
+  #
+  # @param utility_matrix the utility matrix.
+  # @return The matrix with the euclidean distance between all the users.
+#
 def euclidean_distance(utility_matrix):
-  # Se obtienen las dimensiones de la matriz de utilidad.
   number_of_users, number_of_elements = utility_matrix.shape
-  
-  # Se inicializa la matriz de similitud con ceros.
   similarity_matrix = np.zeros((number_of_users, number_of_users))
   
-  # A partir de este punto se realiza el cálculo de la matriz de similitud.
   for i in range(number_of_users):
     for j in range(number_of_users):
       if i == j:
@@ -27,7 +38,7 @@ def euclidean_distance(utility_matrix):
         else:
           similarity_matrix[i, j] = np.inf
           
-  # Se rellenan los valores de la diagonal principal para establecer la similitud de un usuario consigo mismo.        
+  # Fill the diagonal with 1 because represents the similarity with itself.        
   np.fill_diagonal(similarity_matrix, 1)
   
   return similarity_matrix
